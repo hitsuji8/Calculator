@@ -36,20 +36,71 @@ class ViewController: UIViewController {
         {
             return
         }
+        if (lastButtonWasMode)
+        {
+            lastButtonWasMode = false
+            valueString = ""
+        }
         valueString = valueString.stringByAppendingString(str)
-        label.text = valueString!
-        total = valueString.toInt()!
+       
+        var formatter:NSNumberFormatter = NSNumberFormatter()
+        formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        var n:NSNumber = formatter.numberFromString(valueString)!
+        
+        label.text = formatter.stringFromNumber(n)
+
+    
+        if ( total == 0)
+        {
+            total = valueString.toInt()!
+        }
     }
     
+    
+    
     @IBAction func tappedPlus(sender: AnyObject) {
+        self.setMode(1)
     }
 
     
     @IBAction func tappedMinus(sender: AnyObject) {
+        self.setMode(-1)
     }
    
     
+    
+    @IBAction func tappedMultification(sender: AnyObject) {
+        self.setMode(2)
+    }
+    
     @IBAction func tappedEqual(sender: AnyObject) {
+        if (mode == 0)
+        {
+            return
+        }
+        var iNum:Int = valueString.toInt()!
+        if (mode == 1)
+        {
+            total += iNum
+        }
+        if (mode == -1)
+        {
+            total -= iNum
+        }
+        if (mode == 2)
+        {
+            total *= iNum
+        }
+        
+        valueString = "\(total)"
+
+        var formatter:NSNumberFormatter = NSNumberFormatter()
+        formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        var n:NSNumber = formatter.numberFromString(valueString)!
+        
+        label.text = formatter.stringFromNumber(n)
+
+        mode = 0
     }
     
     
@@ -64,6 +115,13 @@ class ViewController: UIViewController {
     
     func setMode(m:Int)
     {
+        if (total == 0)
+        {
+            return
+        }
+        mode = m
+        lastButtonWasMode = true
+        total = valueString.toInt()!
     
     }
 }
