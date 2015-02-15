@@ -136,7 +136,7 @@
                                     <action selector="tappedPlus:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ueR-hM-cbF"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Rk-S0-GmL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="3Rk-S0-GmL">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="80"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -156,6 +156,9 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="205" y="437" width="70" height="70"/>
                                 </variation>
+                                <connections>
+                                    <action selector="tappedClear:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="iRG-Yu-Khk"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1p0-wY-IzF">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -289,7 +292,6 @@
                     </view>
                     <connections>
                         <outlet property="label" destination="3Rk-S0-GmL" id="guk-f9-sBe"/>
-                        <outlet property="tappedClear" destination="8x5-If-1ZH" id="CQ5-Uz-DuO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

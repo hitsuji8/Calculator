@@ -30,6 +30,15 @@ class ViewController: UIViewController {
     
     
     @IBAction func tappedNumber(sender: UIButton) {
+        var str:String! = sender.titleLabel!.text
+        var num:Int! = str.toInt()
+        if (num == 0 && total == 0 )
+        {
+            return
+        }
+        valueString = valueString.stringByAppendingString(str)
+        label.text = valueString!
+        total = valueString.toInt()!
     }
     
     @IBAction func tappedPlus(sender: AnyObject) {
@@ -44,7 +53,14 @@ class ViewController: UIViewController {
     }
     
     
-    @IBOutlet weak var tappedClear: UIButton!
+    @IBAction func tappedClear(sender: AnyObject) {
+        total = 0
+        mode = 0
+        valueString = ""
+        label.text = "0"
+        lastButtonWasMode = false
+    }
+
     
     func setMode(m:Int)
     {
